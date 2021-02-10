@@ -1,0 +1,14 @@
+{
+  "Functional Component": {
+    "prefix": "comp",
+    "body": "import React from 'react'; \n\n const ${1:${TM_FILENAME_BASE/(.{1})/${1:/upcase}/}}  = ($4) => {  \n return (\n    <$2>$3</$2>  \n  )\n} \n\nexport default ${1:${TM_FILENAME_BASE/(.{1})/${1:/upcase}/}};"
+  },
+  "Syled Component": {
+    "prefix": "scomp",
+    "body": "import styled from '@emotion/styled'; \n\nconst ${2:${TM_FILENAME_BASE/(.{1})/${1:/upcase}/}} = styled.${1:${TM_FILENAME_BASE/(.{1})/${1:/downcase}/}}({}); \n\nexport default ${2:${TM_FILENAME_BASE/(.{1})/${1:/upcase}/}};"
+  },
+  "FC emotion Component": {
+    "prefix": "ecomp",
+    "body": "import React from 'react'\nimport { css } from '@emotion/css'; \n\nconst style = css({$5})\n\n const ${2:${TM_FILENAME_BASE/(.{1})/${1:/upcase}/}}  = ($4) => {  \n return (\n    <$1 className={style}>$3</$1>  \n  )\n} \n\nexport default ${2:${TM_FILENAME_BASE/(.{1})/${1:/upcase}/}};"
+  }
+}
