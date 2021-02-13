@@ -8,8 +8,8 @@ app.use(cors());
 
 app.use(express.static(path.join(process.cwd(), "build")));
 
-app.get("/hola", async (req, res) => {
-  res.send("hola");
+app.get("/encourage", async (req, res) => {
+  res.send("Pero ya team!!");
 });
 
 app.get("/", (req, res) => {

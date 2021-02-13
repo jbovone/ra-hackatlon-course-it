@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import Main from "./components/normalizers/Main";
 import Footer from "./components/Footer";
 import BulmaNav from "./components/bulma-components/nav";
@@ -13,12 +14,15 @@ import H1 from "./components/typography/h1";
 */
 
 function App() {
-  axios.get("/hola").then((res) => console.log(res.data));
+  const [extra, setExtra] = useState("");
+  useEffect(() => {
+    axios.get("/encourage").then((res) => setExtra(res.data));
+  }, []);
   return (
     <Main>
       <BulmaNav />
       <Section variant="primary">
-        <H1>Vamos a hacer Esto!!</H1>
+        <H1>Vamos a hacer Esto!! {extra}</H1>
         <Button variant="contained" color="primary" disableElevation>
           BUY NOW
         </Button>
