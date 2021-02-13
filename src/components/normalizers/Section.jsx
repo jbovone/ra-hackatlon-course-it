@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
+import { colors } from "../../theme/colors";
 
-const Section = styled.section({});
+const Main = styled.section(({ variant }) => ({
+  height: "20vh",
+  background: colors[variant],
+}));
 
-export default Section;
+export default Main;

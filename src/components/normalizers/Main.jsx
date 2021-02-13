@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 
 const Main = styled.main({
-  background: "grey",
+  height: "100vh",
+  width: "100vw",
 });
 
 export default Main;
