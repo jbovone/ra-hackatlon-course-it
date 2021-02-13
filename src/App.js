@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import Section from "./components/normalizers/Section";
 import axios from "axios";
 import H1 from "./components/typography/h1";
+import Form from "./components/form"
 /*
   https://bulma.io/documentation/components/card/
   ojo que los tags img hr estan sin cerrar!
@@ -23,6 +24,7 @@ function App() {
       <BulmaNav />
       <Section variant="primary">
         <H1>Vamos a hacer Esto!! {extra}</H1>
+          <Form/>
         <Button variant="contained" color="primary" disableElevation>
           BUY NOW
         </Button>
