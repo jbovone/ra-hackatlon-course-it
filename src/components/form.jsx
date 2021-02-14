@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { css } from '@emotion/css'; 
 import axios from "axios";
+import { Formik, Form as FormikForm, Field, ErrorMessage } from 'formik';
 
 const form = css({
   width: "100%",
@@ -23,7 +24,8 @@ const formContainer = css({
   display: "flex",
   width: "80%",  
   margin:"auto",
-  maxWidth: "40em"
+  maxWidth: "40em",
+  maxHeight: "23em"
 })
 
 const ButtonContainer = css({
@@ -59,25 +61,50 @@ const formValidation = (values) => {
 }
 
 
-const Form  = () => {  
-  const [ userValues, setUserValues ] = useState({ email: "", password: ""})
-
-  const handleEmailChange = (event) => {
-    setUserValues({...userValues, email: event.target.value})
-  }
-  const handlePasswordChange = (event) => {
-    setUserValues({...userValues, password: event.target.value})
-  }
-
- const handleSubmit = (event) => {
-  event.preventDefault()
+const Form  = () => {
+ const handleSubmit = (values) => {
   axios.post("/login").then((res) => console.log(res.data))
-  console.log(userValues)
+  console.log(values)
  }
 
  return (
    <div className={formContainer} >
-       <form className={form} onSubmit={handleSubmit}>
+       <Formik 
+        initialValues={{email: "", password: ""}} 
+        validate={formValidation}
+        onSubmit={handleSubmit}>
+         { ({isSubmitting, errors}) => (
+           <>
+           <FormikForm className={form}>
+           <div className="field">
+                <label htmlFor="email" className={label}>E-Mail</label>
+                <Field className="input" name="email" type="email" placeholder="Email"/>
+                <ErrorMessage style={{ color: "red"}} name="email" component="span"/>
+            </div>
+            <div className="field">
+              <label htmlFor="password" className={label}>Password</label>
+              <Field className="input" name="password" type="password" placeholder="Password" />
+              <ErrorMessage style={{ color: "red"}} name="password" component="span"/>
+              
+            </div>
+            <div className="field">
+              <p className={ButtonContainer}>
+              <button type="submit" className={button} disabled={isSubmitting}>
+                Create account
+              </button>
+              </p>
+            </div>
+          </FormikForm> 
+          
+          </>
+         )}
+         
+       </Formik>
+    </div>  
+  )
+
+  /*
+  <form className={form} onSubmit={handleSubmit}>
          <div className="field">
               <label htmlFor="email" className={label}>E-Mail</label>
               <input className="input" name="email" type="email" placeholder="Email" onChange={handleEmailChange}/>
@@ -93,9 +120,8 @@ const Form  = () => {
             </button>
             </p>
           </div>
-        </form>
-    </div>  
-  )
+        </form> 
+      */
 
 } 
 
