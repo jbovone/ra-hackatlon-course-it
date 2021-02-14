@@ -102,27 +102,6 @@ const Form  = () => {
        </Formik>
     </div>  
   )
-
-  /*
-  <form className={form} onSubmit={handleSubmit}>
-         <div className="field">
-              <label htmlFor="email" className={label}>E-Mail</label>
-              <input className="input" name="email" type="email" placeholder="Email" onChange={handleEmailChange}/>
-          </div>
-          <div className="field">
-            <label htmlFor="password" className={label}>Password</label>
-            <input className="input" name="password" type="password" placeholder="Password" onChange={handlePasswordChange}/>
-          </div>
-          <div className="field">
-            <p className={ButtonContainer}>
-            <button className={button}>
-              Create account
-            </button>
-            </p>
-          </div>
-        </form> 
-      */
-
 } 
 
 export default Form;
