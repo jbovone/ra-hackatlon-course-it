@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { css } from "@emotion/css";
 import axios from "axios";
-
+import { Formik, Form as FormikForm, Field, ErrorMessage } from "formik"
 const form = css({
   width: "100%",
   backdropFilter: "blur",
@@ -59,19 +59,7 @@ const formValidation = (values) => {
 };
 
 const Form = ({ route = "signin" }) => {
-  const [userValues, setUserValues] = useState({ email: "", password: "" });
-
-  const handleEmailChange = (event) => {
-    setUserValues({ ...userValues, email: event.target.value });
-  };
-
-  const handlePasswordChange = (event) => {
-    setUserValues({ ...userValues, password: event.target.value });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(userValues);
+  const handleSubmit = (userValues) => {
     axios.post("/signin", userValues, {
       useCredentials: true,
     });
@@ -79,37 +67,35 @@ const Form = ({ route = "signin" }) => {
 
   return (
     <div className={formContainer}>
-      <form className={form} onSubmit={handleSubmit}>
-        <div className="field">
-          <label htmlFor="email" className={label}>
-            E-Mail
-          </label>
-          <input
-            className="input"
-            name="email"
-            type="email"
-            placeholder="Email"
-            onChange={handleEmailChange}
-          />
-        </div>
-        <div className="field">
-          <label htmlFor="password" className={label}>
-            Password
-          </label>
-          <input
-            className="input"
-            name="password"
-            type="password"
-            placeholder="Password"
-            onChange={handlePasswordChange}
-          />
-        </div>
-        <div className="field">
-          <p className={ButtonContainer}>
-            <button className={button}>Create account</button>
-          </p>
-        </div>
-      </form>
+      <Formik 
+        initialValues={{email: "", password: ""}} 
+        validate={formValidation}
+        onSubmit={handleSubmit}>
+         {({isSubmitting}) => (
+           <>
+           <FormikForm className={form}>
+           <div className="field">
+                <label htmlFor="email" className={label}>E-Mail</label>
+                <Field className="input" name="email" type="email" placeholder="Email"/>
+                <ErrorMessage style={{ color: "red"}} name="email" component="span"/>
+            </div>
+            <div className="field">
+              <label htmlFor="password" className={label}>Password</label>
+              <Field className="input" name="password" type="password" placeholder="Password" />
+              <ErrorMessage style={{ color: "red"}} name="password" component="span"/>
+              
+            </div>
+            <div className="field">
+              <p className={ButtonContainer}>
+              <button type="submit" className={button} disabled={isSubmitting}>
+                Create account
+              </button>
+              </p>
+            </div>
+          </FormikForm>
+          </>
+         )}
+       </Formik>
     </div>
   );
 };
