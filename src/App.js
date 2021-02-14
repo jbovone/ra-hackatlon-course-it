@@ -1,12 +1,14 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Main from "./components/normalizers/Main";
 import Footer from "./components/Footer";
-import BulmaNav from "./components/bulma-components/nav";
+import Navigation from "./components/bulma-components/nav";
 import "../node_modules/bulma/bulma.sass";
 import Button from "@material-ui/core/Button";
 import Section from "./components/normalizers/Section";
 import H1 from "./components/typography/h1";
 import Form from "./components/form";
+import Landing from "./views/Landing";
+
 /*
   https://bulma.io/documentation/components/card/
   ojo que los tags img hr estan sin cerrar!
@@ -18,17 +20,10 @@ import Form from "./components/form";
 
 function App() {
   return (
-    <Main>
-      <BulmaNav />
-      <Section variant="primary">
-        <H1>Vamos a hacer Esto!!</H1>
-        <Form />
-        <Button variant="contained" color="primary" disableElevation>
-          BUY NOW
-        </Button>
-      </Section>
-      <Footer>My Beloved Pets.com</Footer>
-    </Main>
+    <Fragment>
+      <Navigation />
+      <Landing />
+    </Fragment>
   );
 }
 

@@ -1,8 +1,17 @@
 import React from "react";
+import { css } from "@emotion/css";
 
-const BulmaNav = () => {
+const style = css({
+  postion: "fixed",
+});
+
+const Nav = () => {
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav
+      className={`navbar ${style}`}
+      role="navigation"
+      aria-label="main navigation"
+    >
       <div className="navbar-brand">
         <a className="navbar-item" href="https://bulma.io">
           <img
@@ -77,4 +86,4 @@ const BulmaNav = () => {
   );
 };
 
-export default BulmaNav;
+export default Nav;
