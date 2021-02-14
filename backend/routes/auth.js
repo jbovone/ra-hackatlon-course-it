@@ -1,11 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { firebaseAuthCreate } = require("../auth/firebase");
+//const { firebaseAuthCreate } = require("../auth/firebase");
 
 router.post("/signin", (req, res) => {
-  const { params } = req;
-  console.log("/signin");
-  console.log("signin");
+  const { body } = req;
   res.status(200).send({
     name: "geronimo",
   });
@@ -13,8 +11,8 @@ router.post("/signin", (req, res) => {
 });
 
 router.post("/signup", async (req, res, next) => {
-  const { params } = req;
-  const { email, password } = params;
+  const { body } = req;
+  const { email, password } = body;
   try {
     //const actualuser = yup.validate())= validation yup
     //const user = await firebaseAuthCreate(email, password); //devulve un token

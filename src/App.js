@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Main from "./components/normalizers/Main";
 import Footer from "./components/Footer";
 import BulmaNav from "./components/bulma-components/nav";
 import "../node_modules/bulma/bulma.sass";
 import Button from "@material-ui/core/Button";
 import Section from "./components/normalizers/Section";
-import axios from "axios";
 import H1 from "./components/typography/h1";
 import Form from "./components/form";
 /*
@@ -18,19 +17,11 @@ import Form from "./components/form";
 */
 
 function App() {
-  const [extra, setExtra] = useState("");
-
-  useEffect(() => {
-    axios
-      .post("/vamos!!")
-      .then((res) => setExtra(() => "vamo!"))
-      .catch((res) => console.log(res));
-  }, []);
   return (
     <Main>
       <BulmaNav />
       <Section variant="primary">
-        <H1>Vamos a hacer Esto!! {extra}</H1>
+        <H1>Vamos a hacer Esto!!</H1>
         <Form />
         <Button variant="contained" color="primary" disableElevation>
           BUY NOW

@@ -71,13 +71,9 @@ const Form = ({ route = "signin" }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios({
-      url: route,
-      method: "post",
-      data: { ...userValues },
-      headers: {
-        "Content-Type": "application/json",
-      },
+    console.log(userValues);
+    axios.post("/signin", userValues, {
+      useCredentials: true,
     });
   };
 
