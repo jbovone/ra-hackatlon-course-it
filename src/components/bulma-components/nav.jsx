@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { css } from "@emotion/css"
+import Form from "../form"
 
 const mainNav = css({
   padding: "15px",
@@ -25,9 +26,10 @@ const BulmaNav = () => {
   return (
     <nav className={mainNav}>
       <ul className={navList}>
-        <li className={listItem}><a className={navLinks} href="#">Home</a></li>
+        <li className={listItem}><a className={navLinks} href="/">Home</a></li>
         <li className={listItem}><a className={navLinks} href="#">About Us</a></li>
         <li className={listItem}><a className={navLinks} href="#">The Mission</a></li>
+        <li className={listItem}><a className={navLinks} href="/adoptions">Adopt a pet</a></li>
       </ul>
       <div>
         <button className="button" style={{margin: "5px"}} >Sign Up</button>

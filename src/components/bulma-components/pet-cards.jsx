@@ -1,32 +1,40 @@
 import React from 'react'
 import { css } from '@emotion/css'; 
 
-const styledCardContainer = css({
-    maxWidth: "300px",
-    maxHeight: "400px"
-})
+const styledCardContainer = css`
+max-width: 280px;
+max-height: 400px;
+display: inline-block;
+margin: 10px;
+margin-bottom: 100px;
+@media screen and (min-width: 400px){
+    margin-bottom: 40px
+}` 
 
 const cardImg = css({
-    width: "300px",
-    height: "225px"
+    width: "280px",
+    height: "200px",
+    margin: "auto",
+    marginBottom: "10px"
 })
 
 const buttonContainer = css({
     textAlign: "right"
 })
 
- const PetCards  = () => {  
+ const PetCards  = ({name, info, img}) => {  
  return (
     <div className={styledCardContainer}>
         <div class="card">
         <div class={`card-image ${cardImg}`}>
             <figure class="image is-4by3">
-                <img src="" alt="Placeholder image"/>
+                <img src={img} alt="Placeholder image"/>
             </figure>
         </div>
         <div class="card-content">
+            <p><strong>{name}</strong></p>
             <div class="content">
-                {/* card-text */}
+                {info}
             </div>
             <div className={buttonContainer}>
                 <button className="button">View</button>
