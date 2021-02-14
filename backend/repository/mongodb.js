@@ -13,14 +13,20 @@ db.once("open", function () {
 });
 
 const typeUser = new mongoose.Schema({
-  name: String,
-  email: String,
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
 });
 
 const User = mongoose.model("user", typeUser);
 
 //para el controlador:
-const user = new User({ name: "Gero" });
+const user = new User({ name: "Gero", email: 'Tuviejaentanga@hotmail.com' });
 console.log(user.name); // 'Silence'
 
 user.save((err, fluffy) => {
