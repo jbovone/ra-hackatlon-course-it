@@ -3,9 +3,13 @@ const path = require("path");
 const cors = require("cors");
 const express = require("express");
 const app = express();
+const passport = require('passport');
 const authRouter = require("./routes/auth.js");
 
 app.use(cors());
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.static(path.join(process.cwd(), "build")));
 

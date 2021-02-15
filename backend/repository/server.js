@@ -17,9 +17,10 @@ const createPet = function(pet) {
 }
 
 const run = async function() {
-  const pet = await createPet({
-    name: "Tuvieja",
-    description: "entanga@gmail.com",
+  const user = await createUser({
+    username: "Tuvieja",
+    email: "entanga@gmail.com",
+    password: "algo",
     createdAt: Date.now()
   });
 };
