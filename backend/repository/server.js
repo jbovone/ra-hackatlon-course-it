@@ -10,7 +10,7 @@ module.exports = function () {
       useUnifiedTopology: true,
     })
     .then(() => {
-      console.log("moongose success");
+      console.log("mongoose success");
       return new MongoStore({ mongooseConnection: mongoose.connection });
     })
     .catch((err) => console.error("Connection error", err));
