@@ -31,15 +31,15 @@ function App() {
 
   return (
     <Fragment>
-      {formState.show && (
-        <Form
-          show={formState.show}
-          route={formState.route}
-          formShow={setFormState}
-        />
-      )}
       <Navigation formShow={setFormState} />
       <Router>
+        {formState.show && (
+          <Form
+            show={formState.show}
+            route={formState.route}
+            formShow={setFormState}
+          />
+        )}
         <Switch>
           <Route path="/" exact>
             <HomePage formShow={setFormState} />

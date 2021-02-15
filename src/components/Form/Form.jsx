@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { css } from "@emotion/css";
 import axios from "axios";
 import { Formik, Form as FormikForm } from "formik";
 import MainButton from "../MainButton";
 import { SignupSchema } from "../../validation";
 import Input from "./Field";
+import { Redirect } from "react-router-dom";
 
 const form = css({
   position: "fixed",
@@ -54,12 +55,27 @@ const form = css({
 });
 
 const Form = ({ route = "signup", formShow }) => {
+  const [redirect, setRedirect] = useState(false);
+
+  useEffect(() => {
+    if (redirect === false) return;
+    formShow((state) => ({ ...state, show: false, endpoint: "" }));
+    setRedirect(() => false);
+  }, [redirect, formShow]);
+
   const handleSubmit = (userValues) => {
+    delete userValues.endpoint;
     axios
-      .post(route)
-      .then((res) => console.log(res.data))
+      .post(route, userValues, {
+        useCredentials: true,
+      })
+      .then((res) => {
+        console.log(res.data);
+        setRedirect(() => true);
+      }) //trae un nombre hacemos un toaster bienvenido nombre??
       .catch((err) => console.log(err));
   };
+
   return (
     <Formik
       initialValues={{ email: "", password: "", endpoint: route }}
@@ -78,10 +94,11 @@ const Form = ({ route = "signup", formShow }) => {
           <MainButton disabled={isSubmitting} onClick={(e) => handleSubmit(e)}>
             {route}
           </MainButton>
+          {redirect && <Redirect to="/adoptions" />}
         </FormikForm>
       )}
     </Formik>
   );
 };
-
+//
 export default Form;

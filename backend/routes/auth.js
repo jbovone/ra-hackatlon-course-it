@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const db = require("../repository/models");
+const validation = require("../validation/auth.js");
 //const { firebaseAuthCreate } = require("../auth/firebase");
 
 passport.use(new LocalStrategy(db.User.authenticate()));
@@ -20,7 +21,7 @@ router.post("/signin", (req, res) => {
 
 router.post("/signup", async (req, res, next) => {
   const { body } = req;
-  const { email, password } = body;
+  console.log(body, "BODY");
   console.log("signup");
   try {
     //const actualuser = yup.validate())= validation yup
