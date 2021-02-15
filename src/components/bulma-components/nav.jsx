@@ -39,7 +39,7 @@ const BulmaNav = ({ formShow }) => {
           </a>
         </li>
         <li className={listItem}>
-          <a className={navLinks} href="#/urpose">
+          <a className={navLinks} href="/purpose">
             The Mission
           </a>
         </li>
