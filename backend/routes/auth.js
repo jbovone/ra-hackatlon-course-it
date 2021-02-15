@@ -2,12 +2,12 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const LocalStrategy = require('passport-local').Strategy;
-const User = require("..repository/models/User")
+const db = require("../repository/models");
 //const { firebaseAuthCreate } = require("../auth/firebase");
 
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.use(new LocalStrategy(db.User.authenticate()));
+passport.serializeUser(db.User.serializeUser());
+passport.deserializeUser(db.User.deserializeUser());
 
 router.post("/signin", (req, res) => {
   const { body } = req;
