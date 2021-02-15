@@ -15,10 +15,11 @@ import Form from "./components/Form/Form";
   >> si se atasca un puerto error: listen EADDRINUSE: address already in use :::3001 
 */
 const pets = [
-  { name: "Coty",
+  {
+    name: "Coty",
     description: "nesecito un duenño yaaa. Tengo dos años",
-    img: 
- },
+    img: "",
+  },
   { name: "Perro1" },
   { name: "Perro1" },
   { name: "Perro1" },
