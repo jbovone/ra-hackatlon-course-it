@@ -8,6 +8,8 @@ import AdoptionsPage from "./pages/adoptionsPage";
 import Form from "./components/Form/Form";
 import Aside from "./components/bulma-components/aside";
 import PurposePage from "./pages/PurposePage";
+import Cms from "./pages/cms";
+import UserPetList from "./pages/userPetList";
 /*
   https://bulma.io/documentation/components/card/
   ojo que los tags img hr estan sin cerrar!
@@ -22,12 +24,16 @@ const pets = [
     description: "nesecito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
+    age: "3",
+    status: "active",
   },
   {
     name: "Simmy",
     description: "nesecito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
+    age: "3",
+    status: "active",
   },
 
   {
@@ -35,6 +41,8 @@ const pets = [
     description: "nesecito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
+    age: "3",
+    status: "active",
   },
 
   {
@@ -42,30 +50,40 @@ const pets = [
     description: "nesecito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
+    age: "3",
+    status: "active",
   },
   {
     name: "Yo",
     description: "nesecito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
+    age: "3",
+    status: "active",
   },
   {
     name: "Coty",
     description: "nesecito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
+    age: "3",
+    status: "active",
   },
   {
     name: "Coty",
     description: "nesecito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
+    age: "3",
+    status: "active",
   },
   {
     name: "Coty",
     description: "nesecito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
+    age: "3",
+    status: "active",
   },
 ];
 function App() {
@@ -77,7 +95,6 @@ function App() {
   return (
     <Fragment>
       <Navigation formShow={setFormState} />
-      <Aside />
       <Router>
         {formState.show && (
           <Form
@@ -89,14 +106,18 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <HomePage formShow={setFormState} />
+          </Route>{" "}
+          <Route path="/user-pet-list" exact>
+            <UserPetList pets={pets} />
           </Route>
           <Route path="/adoptions" exact>
             <AdoptionsPage pets={pets} />
           </Route>
-          <Route path="/purpose" exact></Route>
+          <Route path="/purpose" exact>
+            <PurposePage />
+          </Route>
         </Switch>
       </Router>
-      <PurposePage />
     </Fragment>
   );
 }
