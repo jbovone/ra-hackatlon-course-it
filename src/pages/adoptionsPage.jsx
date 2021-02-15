@@ -6,12 +6,12 @@ const styledH1 = css({
     fontFamily: "Roboto",
     background: "#767AF9",
     fontSize: "5em",
-    color: "white",
     padding: "20px"
 })
 
 const titleText = css({
-    marginLeft: "70px"
+    marginLeft: "70px",
+    color: "white",
 })
 export default function AdoptionsPage(pets){
     return (
