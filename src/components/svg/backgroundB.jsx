@@ -1,16 +1,22 @@
+import { css } from "@emotion/css";
 import React from "react";
 
+const style = css({
+  position: "absolute",
+  right: -190,
+});
 const BackgroundB = () => {
   return (
     <svg
-      width="1398"
-      height="1078"
-      viewBox="0 0 1398 1078"
+      width={1126}
+      height="100%"
+      className={style}
+      viewBox="0 0 1334 1080"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M1398 0H828.5C857.5 425 241.63 518.5 0 1080H1398V0Z"
+        d="M1333.5 0H761.094C790.083 424.802 107.959 552.746 0 1080H1333.5L1333.5 0Z"
         fill="#B28AC6"
         fill-opacity="0.49"
       />

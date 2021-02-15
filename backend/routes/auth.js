@@ -11,7 +11,7 @@ passport.deserializeUser(db.User.deserializeUser());
 
 router.post("/signin", (req, res) => {
   const { body } = req;
-  console.log("signin");
+  console.log("signin", body);
   res.status(200).send({
     name: "geronimo",
   });

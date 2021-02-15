@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { css } from "@emotion/css";
-import Form from "../form";
+import Logo from "../svg/logo";
+import { colors } from "../../theme/colors";
 
 const mainNav = css({
   padding: "15px",
@@ -25,6 +26,7 @@ const navLinks = css({
 const BulmaNav = ({ formShow }) => {
   return (
     <nav className={mainNav}>
+      <Logo color={colors.logo} />
       <ul className={navList}>
         <li className={listItem}>
           <a className={navLinks} href="/">
@@ -32,12 +34,12 @@ const BulmaNav = ({ formShow }) => {
           </a>
         </li>
         <li className={listItem}>
-          <a className={navLinks} href="#">
+          <a className={navLinks} href="/#about">
             About Us
           </a>
         </li>
         <li className={listItem}>
-          <a className={navLinks} href="#">
+          <a className={navLinks} href="#/urpose">
             The Mission
           </a>
         </li>
@@ -51,7 +53,13 @@ const BulmaNav = ({ formShow }) => {
         <button
           className="button"
           style={{ margin: "5px" }}
-          onClick={() => formShow((state) => ({ ...state, show: !state.show }))}
+          onClick={() =>
+            formShow((state) => ({
+              ...state,
+              show: !state.show,
+              route: "/signin",
+            }))
+          }
         >
           Sign Up
         </button>

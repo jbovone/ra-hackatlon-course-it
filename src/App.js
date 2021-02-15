@@ -5,7 +5,7 @@ import "../node_modules/bulma/bulma.sass";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./pages/homePage";
 import AdoptionsPage from "./pages/adoptionsPage";
-import Form from "./components/form";
+import Form from "./components/Form/Form";
 /*
   https://bulma.io/documentation/components/card/
   ojo que los tags img hr estan sin cerrar!
@@ -42,7 +42,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact>
-            <HomePage />
+            <HomePage formShow={setFormState} />
           </Route>
           <Route path="/adoptions" exact>
             <AdoptionsPage pets={pets} />

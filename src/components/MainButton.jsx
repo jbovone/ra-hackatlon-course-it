@@ -8,20 +8,20 @@ const style = css({
   border: "none",
   fontFamily: "Roboto",
   color: "grey",
-  margin: "auto",
   cursor: "pointer",
   fontWeight: "bold",
   transition: "ease-in-out 0.3s",
   fontSize: 16,
   zIndex: 1000,
+  outline: "none",
   ":hover": {
     padding: "13px 55px",
   },
 });
 
-const MainButton = ({ disabled, children, onClick, value }) => {
+const MainButton = ({ disabled, children, onClick }) => {
   return (
-    <button type="button" className={style} onClick={(e) => onClick(value)}>
+    <button disabled={disabled} onClick={onClick} className={style}>
       {children}
     </button>
   );
