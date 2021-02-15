@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { css } from "@emotion/css";
 import axios from "axios";
 
 const style = css({});
 
 const Aside = () => {
+  const [show, toggleShow] = useState(false);
+
+  const handleShow = () => toggleShow(!show);
+
   function handleLogout() {
     return axios
       .post("/logout", {
@@ -16,26 +20,32 @@ const Aside = () => {
       .catch(() => console.log("exploto"));
   }
   return (
-    <div className="dropdown is-active">
-      <div className="dropdown-trigger">
+    <div
+      className="dropdown is-active"
+      style={{ position: "absolute", right: "100px", top: "20px" }}
+    >
+      <div onClick={handleShow} className="dropdown-trigger">
         <button
           className="button"
           aria-haspopup="true"
           aria-controls="dropdown-menu"
         >
-          <span>Dropdown button</span>
+          <span>Actions</span>
           <span className="icon is-small">
             <i className="fas fa-angle-down" aria-hidden="true"></i>
           </span>
         </button>
       </div>
       <div className="dropdown-menu" id="dropdown-menu" role="menu">
-        <div className="dropdown-content">
+        <div
+          className="dropdown-content"
+          style={{ display: show ? "inline-block" : "none" }}
+        >
           <a href="/user-pet-list" className="dropdown-item">
             Your Publications
           </a>
           <a className="dropdown-item">Edit contact information</a>
-          <a href="#" className="dropdown-item is-active">
+          <a href="#" className="dropdown-item">
             Adoption Success
           </a>
           <a href="#" className="dropdown-item">

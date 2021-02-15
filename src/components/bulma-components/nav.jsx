@@ -51,6 +51,7 @@ const BulmaNav = ({ formShow }) => {
         </li>
       </ul>
       <div>
+        <Aside />
         <button
           className="button"
           style={{ margin: "5px" }}

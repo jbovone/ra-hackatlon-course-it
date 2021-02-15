@@ -21,7 +21,7 @@ import UserPetList from "./pages/userPetList";
 const pets = [
   {
     name: "Coty",
-    description: "nesecito un duenño yaaa. Tengo dos años",
+    description: "necesito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
     age: "3",
@@ -29,7 +29,7 @@ const pets = [
   },
   {
     name: "Simmy",
-    description: "nesecito un duenño yaaa. Tengo dos años",
+    description: "necesito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
     age: "3",
@@ -38,7 +38,7 @@ const pets = [
 
   {
     name: "Bandit",
-    description: "nesecito un duenño yaaa. Tengo dos años",
+    description: "necesito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
     age: "3",
@@ -47,7 +47,7 @@ const pets = [
 
   {
     name: "Coty",
-    description: "nesecito un duenño yaaa. Tengo dos años",
+    description: "necesito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
     age: "3",
@@ -55,7 +55,7 @@ const pets = [
   },
   {
     name: "Yo",
-    description: "nesecito un duenño yaaa. Tengo dos años",
+    description: "necesito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
     age: "3",
@@ -63,7 +63,7 @@ const pets = [
   },
   {
     name: "Coty",
-    description: "nesecito un duenño yaaa. Tengo dos años",
+    description: "necesito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
     age: "3",
@@ -71,7 +71,7 @@ const pets = [
   },
   {
     name: "Coty",
-    description: "nesecito un duenño yaaa. Tengo dos años",
+    description: "necesito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
     age: "3",
@@ -79,7 +79,7 @@ const pets = [
   },
   {
     name: "Coty",
-    description: "nesecito un duenño yaaa. Tengo dos años",
+    description: "necesito un duenño yaaa. Tengo dos años",
     type: "gato",
     images: "",
     age: "3",
