@@ -1,13 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { css } from "@emotion/css";
+
 import Main from "../components/normalizers/Main";
 import Section from "../components/normalizers/Section";
+import H1 from "../components/typography/h1";
+import MainButton from "../components/MainButton";
+import { colors } from "../theme/colors";
+
 import theGuardian from "../assets/the-guardian.png";
 import heros from "../assets/back-02.svg";
 import teamBack from "../assets/back-03.svg";
-import H1 from "../components/typography/h1";
-import { colors } from "../theme/colors";
-import MainButton from "../components/MainButton";
+import herosPhotos from "../assets/heros-min.png";
 
 const HomePage = ({ formShow }) => {
   const style = css({
@@ -49,13 +52,20 @@ const HomePage = ({ formShow }) => {
           />
         </div>
       </Section>
-      <Section backColor={back1} background={heros}>
+      <Section
+        backColor={back1}
+        background={heros}
+        css={{
+          justifyContent: "space-evenly",
+        }}
+      >
         <div className={style}>
           <H1 size={80} bold>
             We connect..
           </H1>
           <p>Beloved caretakers to give a second chance to those left behind</p>
         </div>
+        <img src={herosPhotos} alt="" />
       </Section>
       <Section backColor={back2} background={teamBack}>
         <div className={style}>
