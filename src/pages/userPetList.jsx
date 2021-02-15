@@ -12,12 +12,12 @@ const tableContainer = css({
 const contentContainer = css({
   minWidth: "100vw",
   minHeight: "100vh",
+  maxWidth: "100%",
   background: "#767AF9",
   padding: "30px",
 });
 
 export default function UserPetList({ pets }) {
-  console.log(pets);
   return (
     <div className={contentContainer}>
       <div class={tableContainer}>

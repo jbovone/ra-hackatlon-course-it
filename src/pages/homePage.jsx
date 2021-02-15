@@ -44,6 +44,7 @@ const HomePage = ({ formShow }) => {
     display: "flex",
     justifyContent: "center",
     alignItems: "stretch",
+    flexWrap: "wrap",
   });
 
   const {
