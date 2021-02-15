@@ -16,7 +16,7 @@ router.post("/signup", async (req, res, next) => {
   try {
     const { session } = req;
     if (session === undefined) console.error("no session middleware");
-    console.log(session); //session.id session.hash ??? no me acuerdo... session!.user = a lo que quieras guardar en la session.
+    console.log(session); //session.id session.hash ??? no me acuerdo... session!.user = a lo que quieras guardar en la session, on obv normal.
   } catch (error) {
     console.error("no session middleware");
   }
@@ -41,6 +41,11 @@ router.post("/signin", async (req, res, next) => {
 });
 
 router.get("/logout", function (req, res) {
+  /* 
+   req.session.destroy(function(err) {
+    // cannot access session here
+  })
+ */
   return res.sendStatus(200);
 });
 

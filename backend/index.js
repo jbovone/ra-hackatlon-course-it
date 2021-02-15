@@ -10,7 +10,15 @@ const db = require("./repository/server");
 
 db().then((db) => {
   app.use(cors());
-  app.use(session(db));
+  app.use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: true,
+      cookie: { secure: true }, //ojo con esta
+      store: db,
+    })
+  );
   console.log("sesion middleware success");
   app.use(passport.initialize());
   app.use(passport.session());

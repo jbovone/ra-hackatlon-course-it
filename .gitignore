@@ -24,3 +24,5 @@ yarn-error.log*
 
 # .github (si logro un ci funcionando lo saco de aca)
 /.github
+
+.env
