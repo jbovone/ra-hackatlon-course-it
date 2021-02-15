@@ -8,6 +8,7 @@ import AdoptionsPage from "./pages/adoptionsPage";
 import Form from "./components/Form/Form";
 import Aside from "./components/bulma-components/aside";
 import PurposePage from "./pages/PurposePage";
+import Cms from "./pages/cms";
 /*
   https://bulma.io/documentation/components/card/
   ojo que los tags img hr estan sin cerrar!
@@ -76,27 +77,7 @@ function App() {
 
   return (
     <Fragment>
-      <Navigation formShow={setFormState} />
-      <Aside />
-      <Router>
-        {formState.show && (
-          <Form
-            show={formState.show}
-            route={formState.route}
-            formShow={setFormState}
-          />
-        )}
-        <Switch>
-          <Route path="/" exact>
-            <HomePage formShow={setFormState} />
-          </Route>
-          <Route path="/adoptions" exact>
-            <AdoptionsPage pets={pets} />
-          </Route>
-          <Route path="/purpose" exact></Route>
-        </Switch>
-      </Router>
-      <PurposePage />
+      <Cms />
     </Fragment>
   );
 }
