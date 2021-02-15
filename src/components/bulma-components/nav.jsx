@@ -9,6 +9,7 @@ const mainNav = css({
   fontFamily: "Roboto",
   background: "#495057",
   display: "flex",
+  minWidth: "100vw",
 });
 
 const navList = css({
