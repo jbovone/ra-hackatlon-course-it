@@ -3,7 +3,7 @@ const path = require("path");
 const cors = require("cors");
 const express = require("express");
 const app = express();
-const passport = require('passport');
+const passport = require("passport");
 const authRouter = require("./routes/auth.js");
 
 app.use(cors());
@@ -20,5 +20,10 @@ app.get("/", (req, res) => {
 
 app.use(express.json());
 app.use(authRouter);
+
+app.use(function (err, req, res, next) {
+  console.log(err, "estamos en error controlado, joya!!");
+  return res.sendStatus(500);
+});
 
 app.listen(process.env.PORT || 3001, () => console.log("listening 3001"));

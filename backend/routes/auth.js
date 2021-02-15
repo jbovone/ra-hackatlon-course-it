@@ -10,33 +10,29 @@ passport.use(new LocalStrategy(db.User.authenticate()));
 passport.serializeUser(db.User.serializeUser());
 passport.deserializeUser(db.User.deserializeUser());
 
-router.post("/signin", (req, res) => {
-  const { body } = req;
-  console.log("signin", body);
-  res.status(200).send({
-    name: "geronimo",
-  });
-  //mongo
-});
-
 router.post("/signup", async (req, res, next) => {
   const { body } = req;
-  console.log(body, "BODY");
-  console.log("signup");
   try {
-    //const actualuser = yup.validate())= validation yup
-    //const user = await firebaseAuthCreate(email, password); //devulve un token
-    //firebaseAuthCreate();
-    res.status(200).send({
-      name: "geronimo",
-    });
+    await validation.validate(body);
+    //esto debería ser todo lo que hay que hacer en validacion si no pasa explota con error
+    return res.sendStatus(200);
   } catch (error) {
-    next();
+    next(error);
+  }
+});
+
+router.post("/signin", async (req, res, next) => {
+  const { body } = req;
+  try {
+    await validation.validate(body);
+    return res.sendStatus(200);
+  } catch (error) {
+    next(error);
   }
 });
 
 router.get("/logout", function (req, res) {
-  res.status(200).send("OK");
+  return res.sendStatus(200);
 });
 
 module.exports = router;
