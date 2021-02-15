@@ -77,7 +77,7 @@ const Form = ({ route = "signup", formShow }) => {
         useCredentials: true,
       })
       .then((res) => {
-        console.log(res.data);
+        localStorage.setItem("MyBelovedPetsUUID", res.data);
         setRedirect(() => true);
       })
       .catch(() => setError(() => true));

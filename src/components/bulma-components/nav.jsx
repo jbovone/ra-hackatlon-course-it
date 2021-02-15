@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { css } from "@emotion/css";
 import Logo from "../svg/logo";
 import { colors } from "../../theme/colors";
+import Aside from "./aside";
 
 const mainNav = css({
   padding: "15px",
@@ -24,6 +25,7 @@ const navLinks = css({
 });
 
 const BulmaNav = ({ formShow }) => {
+  const [menu, showMenu] = useState(false);
   return (
     <nav className={mainNav}>
       <Logo color={colors.logo} />
@@ -50,6 +52,7 @@ const BulmaNav = ({ formShow }) => {
         </li>
       </ul>
       <div>
+        {menu && <Aside showMenu={showMenu} />}
         <button
           className="button"
           style={{ margin: "5px" }}

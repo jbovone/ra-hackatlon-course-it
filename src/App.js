@@ -1,5 +1,6 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Footer from "./components/Footer";
+
 import Navigation from "./components/bulma-components/nav";
 import "../node_modules/bulma/bulma.sass";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -16,6 +17,7 @@ import PurposePage from "./pages/PurposePage";
   cmd en admin taskkill /F /IM node.exe 
   >> si se atasca un puerto error: listen EADDRINUSE: address already in use :::3001 
 */
+
 const pets = [
   {
     name: "Coty",
@@ -68,16 +70,18 @@ const pets = [
     images: "",
   },
 ];
+
 function App() {
   const [formState, setFormState] = useState({
     show: false,
     route: "",
   });
-
+  useEffect(() => {
+    const UUID = localStorage.getItem("MyBelovedPetsUUID");
+  }, []);
   return (
     <Fragment>
       <Navigation formShow={setFormState} />
-      <Aside />
       <Router>
         {formState.show && (
           <Form

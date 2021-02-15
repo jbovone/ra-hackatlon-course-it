@@ -4,7 +4,7 @@ import axios from "axios";
 
 const style = css({});
 
-const Aside = () => {
+const Aside = ({ showMenu }) => {
   function handleLogout() {
     return axios
       .post("/logout", {
@@ -19,6 +19,7 @@ const Aside = () => {
     <div className="dropdown is-active">
       <div className="dropdown-trigger">
         <button
+          onClick={() => showMenu((menu) => !menu)}
           className="button"
           aria-haspopup="true"
           aria-controls="dropdown-menu"

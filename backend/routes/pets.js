@@ -1,9 +1,14 @@
 const express = require("express");
 const router = express.Router();
+const { getPets } = require("../auth/firebase");
 
-router.get("/getall", function (req, res) {
-  const { body } = req;
-  res.status(200).send("OK");
+router.get("/getall", async (req, res, next) => {
+  try {
+    const { snapshots } = await getPets();
+    return res.status(200).send(snapshots.docs.map((doc) => doc.data()));
+  } catch (error) {
+    next();
+  }
 });
 
 router.post("/create", function (req, res) {
