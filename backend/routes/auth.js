@@ -12,6 +12,15 @@ passport.deserializeUser(db.User.deserializeUser());
 
 router.post("/signup", async (req, res, next) => {
   const { body } = req;
+  /*para probar si esta*/
+  try {
+    const { session } = req;
+    if (session === undefined) console.error("no session middleware");
+    console.log(session); //session.id session.hash ??? no me acuerdo... session!.user = a lo que quieras guardar en la session.
+  } catch (error) {
+    console.error("no session middleware");
+  }
+
   try {
     await validation.validate(body);
     //esto debería ser todo lo que hay que hacer en validacion si no pasa explota con error
