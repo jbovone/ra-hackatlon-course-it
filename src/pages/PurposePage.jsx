@@ -23,7 +23,7 @@ const subtitle = css({
 });
 
 const info = css({
-  fontSize: "1em",
+  fontSize: "1.5em",
   marginLeft: "30px",
   marginTop: "60px",
 });
