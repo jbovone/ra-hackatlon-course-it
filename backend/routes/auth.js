@@ -12,6 +12,7 @@ passport.deserializeUser(db.User.deserializeUser());
 
 router.post("/signup", async (req, res, next) => {
   const { body } = req;
+  console.log(body);
   /*para probar si esta*/
   try {
     const { session } = req;

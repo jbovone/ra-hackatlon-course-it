@@ -15,7 +15,7 @@ db().then((db) => {
       secret: process.env.SESSION_SECRET,
       resave: false,
       saveUninitialized: true,
-      cookie: { secure: true }, //ojo con esta
+      cookie: { secure: false }, //ojo con esta
       store: db,
     })
   );

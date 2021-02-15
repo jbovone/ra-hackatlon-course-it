@@ -5,7 +5,7 @@ const MongoStore = require("connect-mongo")(session); //si hay que ejecutarlo ac
 
 module.exports = function () {
   return mongoose
-    .connect(process.env.DB_PATH || "mongodb://localhost/test", {
+    .connect("mongodb://localhost:27017/test", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
@@ -15,10 +15,3 @@ module.exports = function () {
     })
     .catch((err) => console.error("Connection error", err));
 };
-
-// const db = mongoose.connection;
-// db.on("error", console.error.bind(console, "connection error:"));
-// db.once("open", function () {
-//   // we're connected!
-//   console.log("dbconnected");
-// });
