@@ -56,12 +56,19 @@ const form = css({
 
 const Form = ({ route = "signup", formShow }) => {
   const [redirect, setRedirect] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     if (redirect === false) return;
     formShow((state) => ({ ...state, show: false, endpoint: "" }));
     setRedirect(() => false);
   }, [redirect, formShow]);
+
+  useEffect(() => {
+    if (error === true) {
+      setError(() => false);
+    }
+  }, [error]);
 
   const handleSubmit = (userValues) => {
     delete userValues.endpoint;
@@ -73,7 +80,7 @@ const Form = ({ route = "signup", formShow }) => {
         console.log(res.data);
         setRedirect(() => true);
       }) //trae un nombre hacemos un toaster bienvenido nombre??
-      .catch((err) => console.log(err));
+      .catch(() => setError(() => true));
   };
 
   return (
@@ -94,6 +101,13 @@ const Form = ({ route = "signup", formShow }) => {
           <MainButton disabled={isSubmitting} onClick={(e) => handleSubmit(e)}>
             {route}
           </MainButton>
+          {error && (
+            <div className="is-danger">
+              {route === "signup"
+                ? "this mail is already in use"
+                : "ups may be you type the wrong mail"}
+            </div>
+          )}
           {redirect && <Redirect to="/adoptions" />}
         </FormikForm>
       )}
