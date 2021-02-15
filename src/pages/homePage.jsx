@@ -26,10 +26,24 @@ const HomePage = ({ formShow }) => {
       color: "white",
     },
   });
-  const setion1 = css({
+  const section1 = css({
+    display: "flex",
+    justifyContent: "space-between",
+
+    alignItems: "stretch",
     button: {
-      maxWidth: 200,
+      padding: 25,
+      alignSelf: "flex-start",
+      transform: "translateY(50px) translateX(80px)",
     },
+    h1: {
+      textIndent: 20,
+    },
+  });
+  const setion2 = css({
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "stretch",
   });
 
   const {
@@ -38,7 +52,7 @@ const HomePage = ({ formShow }) => {
 
   return (
     <Main>
-      <Section backColor={back0} background={theGuardian}>
+      <Section backColor={back0} background={theGuardian} className={section1}>
         <div className={style}>
           <H1 bold size={80}>
             Care for our pets
@@ -55,6 +69,7 @@ const HomePage = ({ formShow }) => {
       <Section
         backColor={back1}
         background={heros}
+        className={setion2}
         css={{
           justifyContent: "space-evenly",
         }}
