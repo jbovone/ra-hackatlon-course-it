@@ -2,12 +2,13 @@ import React from "react";
 import { css } from "@emotion/css";
 import Logo from "../svg/logo";
 import { colors } from "../../theme/colors";
-
+import Aside from "./aside";
 const mainNav = css({
   padding: "15px",
   fontFamily: "Roboto",
   background: "#495057",
   display: "flex",
+  minWidth: "100vw",
 });
 
 const navList = css({

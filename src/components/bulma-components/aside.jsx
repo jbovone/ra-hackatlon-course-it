@@ -31,7 +31,7 @@ const Aside = () => {
       </div>
       <div className="dropdown-menu" id="dropdown-menu" role="menu">
         <div className="dropdown-content">
-          <a href="#" className="dropdown-item">
+          <a href="/user-pet-list" className="dropdown-item">
             Your Publications
           </a>
           <a className="dropdown-item">Edit contact information</a>
