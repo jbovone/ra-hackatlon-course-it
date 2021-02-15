@@ -1,9 +1,6 @@
 import styled from "@emotion/styled";
 
-const Section = styled.section(({ backColor, background, css }) => ({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "stretch",
+const Section = styled.section(({ backColor, background, css, jcUnset }) => ({
   minHeight: "100vh",
   position: "relative",
   backgroundImage: `url('${background}')`,

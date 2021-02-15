@@ -1,39 +1,50 @@
 import React from "react";
 import { css } from "@emotion/css";
+import axios from "axios";
 
 const style = css({});
 
 const Aside = () => {
+  function handleLogout() {
+    return axios
+      .post("/logout", {
+        useCredentials: true,
+      })
+      .then((res) => {
+        console.log("exploto");
+      })
+      .catch(() => console.log("exploto"));
+  }
   return (
-    <div class="dropdown is-active">
-      <div class="dropdown-trigger">
+    <div className="dropdown is-active">
+      <div className="dropdown-trigger">
         <button
-          class="button"
+          className="button"
           aria-haspopup="true"
           aria-controls="dropdown-menu"
         >
           <span>Dropdown button</span>
-          <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          <span className="icon is-small">
+            <i className="fas fa-angle-down" aria-hidden="true"></i>
           </span>
         </button>
       </div>
-      <div class="dropdown-menu" id="dropdown-menu" role="menu">
-        <div class="dropdown-content">
-          <a href="#" class="dropdown-item">
+      <div className="dropdown-menu" id="dropdown-menu" role="menu">
+        <div className="dropdown-content">
+          <a href="#" className="dropdown-item">
             Your Publications
           </a>
-          <a class="dropdown-item">Edit contact information</a>
-          <a href="#" class="dropdown-item is-active">
+          <a className="dropdown-item">Edit contact information</a>
+          <a href="#" className="dropdown-item is-active">
             Adoption Success
           </a>
-          <a href="#" class="dropdown-item">
+          <a href="#" className="dropdown-item">
             Other dropdown item
           </a>
-          <hr class="dropdown-divider" />
-          <a href="#" class="dropdown-item">
+          <hr className="dropdown-divider" />
+          <button className="dropdown-item" onClick={handleLogout}>
             Logout
-          </a>
+          </button>
         </div>
       </div>
     </div>

@@ -79,7 +79,7 @@ const Form = ({ route = "signup", formShow }) => {
       .then((res) => {
         console.log(res.data);
         setRedirect(() => true);
-      }) //trae un nombre hacemos un toaster bienvenido nombre??
+      })
       .catch(() => setError(() => true));
   };
 
