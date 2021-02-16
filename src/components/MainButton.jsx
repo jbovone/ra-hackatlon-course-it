@@ -14,9 +14,6 @@ const style = css({
   fontSize: 16,
   zIndex: 1000,
   outline: "none",
-  ":hover": {
-    padding: "13px 55px",
-  },
 });
 
 const MainButton = ({ disabled, children, onClick }) => {

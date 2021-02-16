@@ -9,7 +9,27 @@ const mainNav = css({
   fontFamily: "Roboto",
   background: "#495057",
   display: "flex",
-  minWidth: "100vw",
+  flexWrap: "wrap",
+  width: "100vw",
+  "@media(max-width: 570px)": {
+    alignContent: "space-around",
+    justifyItems: "stretch",
+    ul: {
+      order: "2 !important",
+      width: "100vw",
+      display: "flex",
+      justifyContent: "center",
+    },
+    div: {
+      width: "100%",
+      order: "1 !important",
+      "&>button": {
+        position: "absolute",
+        top: 15,
+        right: 10,
+      },
+    },
+  },
 });
 
 const navList = css({
@@ -23,6 +43,10 @@ const listItem = css({
 
 const navLinks = css({
   color: "white",
+});
+
+const signUp = css({
+  marginRight: "22px !important",
 });
 
 const BulmaNav = ({ formShow }) => {
@@ -55,7 +79,7 @@ const BulmaNav = ({ formShow }) => {
       <div>
         {menu && <Aside showMenu={showMenu} />}
         <button
-          className="button"
+          className={`button ${signUp}`}
           style={{ margin: "5px" }}
           onClick={() =>
             formShow((state) => ({
