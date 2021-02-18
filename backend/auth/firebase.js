@@ -1,8 +1,19 @@
 const firebase = require("firebase");
+//import firebase from "firebase";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-
+/*
+var firebaseConfig = {
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  databaseURL: process.env.databaseURL,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
+  appId: process.env.appId,
+  measurementId: process.envmeasurementId,
+};*/
 var firebaseConfig = {
   apiKey: "AIzaSyCKB8CIyLwRw8GuKp47NIgYAfd75y0X-fw",
   authDomain: "pets-for-anyone.firebaseapp.com",
@@ -34,17 +45,38 @@ function firebaseCreateUser(username, password) {
 }
 
 function signOutGoogle() {
-  return auth.signOut();
+  return auth
+    .signOut()
+    .then(() => "OK")
+    .catch((err) => {
+      throw err;
+    });
 }
-
 function loginWithGoogle(email, password) {
-  return auth.signInWithEmialAndPassword(email, password);
+  return auth
+    .signInWithEmailAndPassword(email, password)
+    .then(() => "OK")
+    .catch((err) => {
+      throw err;
+    });
 }
 
 function getPets() {
-  return db.collection("pets").get();
+  return db.collection("adopt").then((data) => {
+    console.log(data);
+    return [{ name: "test" }];
+  });
 }
 
+function addAdopt(pet) {
+  return db
+    .collection("adopt")
+    .add(pet)
+    .then(() => "OK")
+    .catch((err) => {
+      throw err;
+    });
+}
 module.exports = {
   firebaseCreateUser,
   signOutGoogle,

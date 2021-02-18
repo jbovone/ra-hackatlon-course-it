@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { sizes } from "../../theme/sizing";
 
 const Section = styled.section(({ backColor, background, css, jcUnset }) => ({
   minHeight: "100vh",
@@ -21,8 +22,8 @@ const Section = styled.section(({ backColor, background, css, jcUnset }) => ({
     p: {
       alignSelf: "center",
       marginLeft: "5%",
-      color: "white",
-      fontSize: 16,
+      color: "beige",
+      fontSize: sizes.fonts.p,
     },
   },
   ...css,

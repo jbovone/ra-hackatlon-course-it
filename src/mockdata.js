@@ -1,4 +1,5 @@
-export const pets = [
+const fs = require("fs");
+const pets = [
   {
     name: "Coty",
     description: "necesito un duenño yaaa. Tengo dos años",
@@ -56,5 +57,21 @@ export const pets = [
     image:
       "https://media4.s-nbcnews.com/i/newscms/2019_23/2885811/190606-border-collie-mc-1318_5b1706791f4ae9ddb3029540a98f7e08.JPG",
     status: "active",
+  },
+];
+
+const adopted = [
+  {
+    name: "charly",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQledCjwh7-LvW-LE4bUTAbYZZXNdYMkFZMvA&usqp=CAU",
+    type: "dog",
+  },
+  { name: "lazy", image: "https://i.imgur.com/K3jDGqR.jpg", type: "cat" },
+  {
+    name: "Dancy",
+    image:
+      "https://blog.ferplast.com/wp-content/uploads/2019/07/owning-a-white-cat-5b1b91a318ba9-900x600.jpg",
+    type: "cat",
   },
 ];

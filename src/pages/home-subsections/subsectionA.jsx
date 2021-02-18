@@ -8,16 +8,10 @@ import gato from "../../assets/back-mobile.jpg";
 
 const style = css({
   display: "flex",
-  position: "relative",
-  justifyContent: "space-between",
-  alignItems: "stretch",
+  paddingTop: 40,
   button: {
-    padding: 25,
-    alignSelf: "flex-start",
-    transform: "translateY(50px) translateX(80px)",
-  },
-  h1: {
-    textIndent: 20,
+    margin: 50,
+    alignSelf: "flex-end",
   },
   ".curtrain": {
     width: "100%",
@@ -27,6 +21,13 @@ const style = css({
     right: 0,
     background: "black",
     opacity: "0.4",
+  },
+  "@media(max-width: 500px)": {
+    margin: "0 auto",
+    button: {
+      alignSelf: "center",
+    },
+    height: "37vh",
   },
 });
 
@@ -45,10 +46,12 @@ const SubsectionA = ({ formShow, background }) => {
     >
       <div className="curtrain" />
       <div className={style}>
-        <H1 bold size={80}>
-          Care for our pets
-        </H1>
-        <p>The place to care for our pets</p>
+        <div>
+          <H1 bold size={80}>
+            Care for our pets
+          </H1>
+          <p>The place to care for our pets.</p>
+        </div>
         <MainButton
           children="CREATE ACCOUNT"
           onClick={() =>

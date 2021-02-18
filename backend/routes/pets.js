@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { getPets } = require("../auth/firebase");
 
-router.get("/getall", async (req, res, next) => {
+router.get("/pets", async (req, res, next) => {
+  console.log("pets");
   try {
     const { snapshots } = await getPets();
     return res.status(200).send(snapshots.docs.map((doc) => doc.data()));

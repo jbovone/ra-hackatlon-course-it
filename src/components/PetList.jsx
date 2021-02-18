@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "@emotion/css";
-import PetCard from "./bulma-components/pet-cards";
+import PetCard from "./pet-cards";
 
 const PetsContainer = css({
   textAlign: "center",

@@ -1,12 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
-import Navigation from "./components/bulma-components/nav";
+import Navigation from "./components/nav";
 import "../node_modules/bulma/bulma.sass";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./pages/homePage";
 import AdoptionsPage from "./pages/adoptionsPage";
 import Form from "./components/Form/Form";
-import PurposePage from "./pages/PurposePage";
-import UserPetList from "./pages/userPetList";
 import { pets } from "./mockdata";
 
 function App() {
@@ -19,8 +17,8 @@ function App() {
   }, []);
   return (
     <Fragment>
-      <Navigation formShow={setFormState} />
       <Router>
+        <Navigation formShow={setFormState} />
         {formState.show && (
           <Form
             show={formState.show}
@@ -31,12 +29,9 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <HomePage formShow={setFormState} />
-          </Route>{" "}
+          </Route>
           <Route path="/adoptions" exact>
             <AdoptionsPage pets={pets} />
-          </Route>
-          <Route path="/purpose" exact>
-            <PurposePage />
           </Route>
         </Switch>
       </Router>
